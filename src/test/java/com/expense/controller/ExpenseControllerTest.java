@@ -62,14 +62,14 @@ public class ExpenseControllerTest {
 		
 
 		ResultActions resultAction = mockMvc.perform(get("/delete/1"))
-				// .andExpect(status().isOk())
+				.andExpect(status().isOk())
 				.andExpect(view().name("redirect:/expense-list"))
-//	  .andExpect(forwardedUrl("expenseList.jsp"))
-//	  .andExpect(model().attribute("expeseList", Matchers.hasSize(1)))
+	  .andExpect(forwardedUrl("expenseList.jsp"))
+	  .andExpect(model().attribute("expeseList", Matchers.hasSize(1)))
 		;
 
 		resultAction = mockMvc.perform(get("/expense-list")).andExpect(status().isOk())
-//				.andExpect(view().name("expenseList.jsp")).andExpect(forwardedUrl("expenseList.jsp"))
+				.andExpect(view().name("expenseList.jsp")).andExpect(forwardedUrl("expenseList.jsp"))
 				.andExpect(model().attribute("expeseList", Matchers.hasSize(1)));
 	}
 	
